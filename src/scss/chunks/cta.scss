@@ -1,0 +1,109 @@
+.cta {
+    padding: 3.2rem 0 4rem 0;
+
+    background: $bgAlt;
+
+    &__headline {
+        text-align   : center;
+        margin-bottom: 2.4rem;
+    }
+
+    &__image {
+        display        : flex;
+        justify-content: center;
+    }
+
+    &__image-img {
+        display: block;
+        width  : 24.8rem;
+        height : 26.8rem;
+    }
+
+    &__list {
+        margin-top: 2.4rem;
+    }
+
+    &__list-item {
+        display      : flex;
+        align-items  : center;
+        margin-bottom: 1.6rem;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__list-checkmark {
+        margin-right: 0.8rem;
+        width       : 2.4rem;
+        height      : 2.4rem;
+    }
+
+    &__list-item-text {
+        font-weight: 600;
+        margin: 0;
+    }
+
+    &__buttons {
+        margin-top: 2.4rem;
+    }
+
+    &__button {
+        margin-bottom: 2.4rem;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+
+    @include tablet {
+        padding: 0;
+
+        &__wrapper {
+            display        : flex;
+            justify-content: space-between;
+            align-items    : center;
+            position       : relative;
+        }
+
+        &__row {
+            width  : 45.9rem;
+            min-height: 64.8rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        &__image-img {
+            position  : absolute;
+            right     : 0;
+            top       : 0;
+            width     : calc(100% - 24rem - 45.9rem);
+            height    : 100%;
+            object-fit: contain;
+        }
+
+        &__headline {
+            text-align   : left;
+            margin-bottom: 0;
+        }
+
+        &__buttons {
+            display        : flex;
+            justify-content: space-between;
+            align-items    : center;
+            width          : 36.6rem;
+        }
+
+        &__button {
+            margin-bottom: 0;
+            width        : 100%;
+            margin-right : 3rem;
+        }
+
+        &__button-alt {
+            width: 100%;
+        }
+    }
+}

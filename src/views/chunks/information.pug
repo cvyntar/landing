@@ -1,0 +1,15 @@
+- 
+    const informationItems = [
+        {title: "2013", description: "Market entry year"},
+        {title: "~4M", description: "Registered users on trade platform"},
+        {title: "0%", description: "Customer’ funds lost"},
+        {title: "99%", description: "Countries supported and 48 US States"},
+    ]
+
+section.information
+    .container
+        .information__wrapper
+            each informationItem in informationItems
+                .information__item 
+                    .information__item-title= informationItem.title 
+                    .information__item-description= informationItem.description 

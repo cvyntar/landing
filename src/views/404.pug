@@ -1,0 +1,21 @@
+extends base/base.pug
+
+block title 
+    title Not found
+
+block content
+    include chunks/header.pug
+    main
+        section.not-found
+            .container
+                .not-found__wrapper
+                    p.title.not-found__title Page not found
+                    p.not-found__description
+                        | The page you are looking for doesn't exist or has been moved.
+                        br
+                        | Return to the &nbsp;
+                        a(href="/").not-found__link homepage
+    include chunks/footer.pug
+
+block scripts
+    script(src="js/libs/swiper.js")

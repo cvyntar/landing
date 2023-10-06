@@ -1,0 +1,31 @@
+section.demo 
+    .container 
+        .demo__top 
+            h1.title.demo__title Book a DEMO
+            p.demo__description Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquet dignissim vel congue sit tortor donec est.
+        .demo__wrapper 
+            form.demo__form
+                .demo__box 
+                    .demo__item 
+                        label(for="firstName").label First name
+                        input(id="firstName" type="text").input.demo__input
+                    .demo__item 
+                        label(for="email").label Email
+                        input(id="email" type="text").input.demo__input
+                    .demo__item 
+                        label(for="bsType").label Business type
+                        select(id="bsType").select.demo__select
+                            option(value="--Select Option--")  --Select Option--
+                            option(value="Small Business") Small Business
+                            option(value="Medium Business") Medium Business
+                            option(value="Big Business") Big Business
+                    .demo__item 
+                        label(for="lastName").label Last name
+                        input(id="lastName" type="text").input.demo__input
+                    .demo__item 
+                        label(for="companyName").label Company name
+                        input(id="companyName" type="text").input.demo__input
+                    .demo__item 
+                        label(for="countryRegion").label Country/Region
+                        input(id="countryRegion" type="text").input.demo__input
+                button.btn.btn-primary.demo__button Book

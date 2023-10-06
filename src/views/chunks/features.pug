@@ -1,0 +1,27 @@
+- 
+    var featureItems = [
+        {id: "01", title: "Set up your own checkouts", description: "Accept crypto payments using flexible checkouts for all your products and services"},
+        {id: "02", title: "Powerful API integration", description: "Create custom user experience for crypto payments"},
+        {id: "03", title: "Easy-to-use invoices", description: "Send and adapt invoices for your customers rapidly"},
+        {id: "04", title: "Advanced analytics", description: "Do crypto payments analysis and create reports for accounting"}
+    ]
+
+section.features  
+    .container
+        .features__box
+            .features__row
+                .features__top
+                    h2.title.features__title Cvyntar features
+                    p.features__description Take advantage of multiple business tools to improve your crypto payments
+                .features__wrapper
+                  each featureItem in featureItems
+                      .features__item
+                          .features__item-count= featureItem.id
+                          .features__item-text
+                              p.features__item-title= featureItem.title
+                              p.features__item-description= featureItem.description
+            .features__row
+                picture.features__image
+                    source(srcset="img/features.webp" type="image/webp")
+                    source(srcset="img/features.jpg" type="image/jpeg")
+                    img(loading="lazy" src="img/features.jpg" alt="features")

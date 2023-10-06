@@ -1,0 +1,27 @@
+extends base/base.pug
+
+block title 
+    title Cvyntar Bitcoin payment gateway — crypto payment processor for business
+block meta
+    meta(name="title", content="CvyntarBitcoin payment gateway — crypto payment processor for business")
+    meta(name="description", content="Set up a Bitcoin payment gateway in a matter of minutes to accept Bitcoin on your website and for your business. Join Cvyntar to integrate a crypto payment processor with multiple digital assets easily.")
+
+block og
+    meta(name="og:title" content="Cvyntar Bitcoin payment gateway — crypto payment processor for business")
+    meta(name="og:description" content="Set up a Bitcoin payment gateway in a matter of minutes to accept Bitcoin on your website and for your business. Join Cvyntar to integrate a crypto payment processor with multiple digital assets easily.")
+    meta(name="og:image" content="https://marketing-image-production.s3.amazonaws.com/uploads/8b02ef46515864267dce22860a5e84f453ea64166c94bdbfcbb581b6911b79392a3bade71c1cc1308bbd0e892a87d3ec0d96a8e4b705491d2b9b25da2e3b8c45.png")
+
+block content
+    include chunks/header.pug
+    main
+        include chunks/cta.pug
+        include chunks/benefits.pug
+        include chunks/plans.pug
+        include chunks/features.pug
+        include chunks/information.pug
+        include chunks/faq.pug
+        include chunks/get-started.pug
+    include chunks/footer.pug
+
+block scripts
+    script(src="js/libs/swiper.js")

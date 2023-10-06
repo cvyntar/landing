@@ -1,0 +1,111 @@
+.hero {
+    padding: 2rem 0;
+
+    &__wrapper {
+        display        : flex;
+        justify-content: space-between;
+        align-items    : center;
+    }
+
+    &__nav {
+        z-index        : 999;
+        transform      : translateX(100%);
+        position       : fixed;
+        top            : 0;
+        right          : 0;
+        width          : calc(100% - 4rem);
+        height         : 100%;
+        display        : flex;
+        flex-direction : column;
+        justify-content: center;
+        align-items    : center;
+        background     : $ctaColor;
+        transition     : .3s all ease-out;
+
+        &--active {
+            transform: translateX(0);
+        }
+    }
+
+    &__link {
+        font-weight   : 700;
+        margin-top    : 4rem;
+        color         : $whiteColor;
+        letter-spacing: unset;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__close {
+        width   : 2.4rem;
+        height  : 2.4rem;
+        position: absolute;
+        top     : 2.4rem;
+        right   : 2.4rem;
+    }
+
+    &__title {
+        font-weight   : 700;
+        letter-spacing: -0.1rem;
+        color         : $whiteColor;
+        font-size     : 2.4rem;
+    }
+
+    &__brand-svg {
+        display: block;
+        width  : 13.5rem;
+        height : 3.2rem;
+    }
+
+    &__mobile {
+        width : 2.4rem;
+        height: 2.4rem;
+    }
+
+    &__mobile-svg {
+        width : 2.4rem;
+        height: 2.4rem;
+    }
+
+
+    @include tablet {
+        &__close {
+            display: none;
+        }
+
+        &__title {
+            display: none;
+        }
+
+
+        &__mobile {
+            display: none;
+        }
+
+        &__nav {
+            z-index   : unset;
+            position  : unset;
+            background: unset;
+            display   : block;
+            transform : unset;
+            width     : fit-content;
+        }
+
+        &__link {
+            color       : $mainColor;
+            margin-right: 4rem;
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            transition: .3s color ease-out;
+
+            &:hover {
+                color: $ctaColor;
+            }
+        }
+    }
+}
