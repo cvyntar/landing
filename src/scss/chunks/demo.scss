@@ -1,0 +1,94 @@
+.demo {
+    padding   : 3.1rem 0 4rem 0;
+    background: #F6F9FC;
+
+    &__top {
+        text-align: center;
+    }
+
+    &__title {
+        margin-bottom: 1rem;
+    }
+
+    &__description {
+        margin: 0;
+    }
+
+    &__form {
+        margin-top   : 3.2rem;
+        background   : $whiteColor;
+        border-radius: 0.5rem;
+        padding      : 3rem 1.6rem;
+    }
+
+    &__item {
+        margin-bottom: 1.6rem;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__input {
+        margin-top : 0.4rem;
+    }
+
+    &__select {
+        margin-top: 0.4rem;
+    }
+
+    &__button {
+        width     : 100%;
+        margin-top: 3rem;
+    }
+
+    @include tablet {
+        padding         : 9.6rem 0 16.8rem 0;
+        background-image: url("../img/demo.webp");
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        &__wrapper {
+            display        : flex;
+            justify-content: center;
+        }
+
+        &__top {
+            display       : flex;
+            flex-direction: column;
+            align-items   : center;
+        }
+
+        &__title {
+            width        : 55.5rem;
+            margin-bottom: 2.4rem;
+        }
+
+        &__description {
+            width      : 55.5rem;
+            line-height: 150%;
+            margin     : 0;
+        }
+
+
+        &__form {
+            margin-top: 4.8rem;
+            width     : 89rem;
+            padding   : 3rem 3rem 4rem 3rem;
+        }
+
+        &__box {
+            display              : grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap                  : 3rem;
+        }
+
+        &__item {
+            margin-bottom: 0;
+        }
+
+        &__button {
+            cursor: pointer;
+        }
+    }
+}

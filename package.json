@@ -1,0 +1,38 @@
+{
+  "name": "@cvyntar/landing",
+  "version": "0.0.4",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "serve": "gulp serve",
+    "build": "gulp build"
+  },
+  "author": {
+    "name": "Polina Tereschenko",
+    "email": "polinatereschenko16@gmail.com"
+  },
+  "contributors": [
+    {
+      "name": "Cvyntar Team"
+    }
+  ],
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.27.7",
+    "del": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-pug": "^5.0.0",
+    "gulp-sass": "^5.0.0",
+    "gulp-save": "^1.3.0",
+    "gulp-sitemap": "^8.0.0",
+    "gulp-strip-css-comments": "^2.0.0",
+    "gulp-ttf-to-woff": "^1.0.3",
+    "gulp-webp": "^4.0.1",
+    "prettier": "^2.4.1",
+    "sass": "^1.43.4"
+  },
+  "dependencies": {
+    "swiper": "^7.2.0"
+  }
+}

@@ -1,0 +1,18 @@
+- 
+    var benefitItems = [
+        {"image": "img/benefits-1.svg","title": "On your Website","description": "Add plugins on websites — accept crypto deposits, donations, payments, and other transactions online"},
+        {"image": "img/benefits-2.svg","title": "By Email","description": "Manage billing via emails  — make sending crypto invoices as fast and easy as sending emails"},
+        {"image": "img/benefits-3.svg","title": "In Person","description": "Accept personally — integrate payment processor to accept crypto at your retail business "}
+    ]
+
+section.benefits
+    .container
+        .benefits__top
+            h2.title.benefits__title Choose your way to accept crypto
+            p.benefits__description Use 3 different ways to accept cryptocurrencies or find the one that suits you most
+        .benefits__wrapper
+            each benefitItem in benefitItems
+                .benefits__item
+                    img(loading="lazy" src=benefitItem.image, alt=benefitItem.title).benefits__item-image
+                    p.benefits__item-title= benefitItem.title
+                    p.benefits__item-description= benefitItem.description

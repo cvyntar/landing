@@ -1,0 +1,68 @@
+.information {
+    margin-top: 4rem;
+    background: $mainColor;
+    padding   : 4rem 0;
+
+    &__item {
+        width        : 100%;
+        box-shadow   : 0 2rem 4rem rgba(0, 0, 0, 0.1);
+        border-radius: 0.5rem;
+        background   : $whiteColor;
+        padding      : 3rem;
+        min-height   : 15.2rem;
+        margin-bottom: 1.6rem;
+        position     : relative;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        &::after {
+            content      : "";
+            position     : absolute;
+            top          : 3rem;
+            right        : 3.2rem;
+            width        : 1rem;
+            height       : 1rem;
+            background   : $ctaColor;
+            border-radius: 1rem;
+        }
+
+        &:nth-child(2) {
+            .information__item-description {
+                width: 15.2rem;
+            }
+        }
+
+        &:nth-child(4) {
+            .information__item-description {
+                width: 14.1rem;
+            }
+        }
+    }
+
+    &__item-title {
+        font-size     : 3rem;
+        letter-spacing: -0.01rem;
+        margin-bottom : 1rem;
+    }
+
+    &__item-description {
+        font-weight: 600;
+    }
+
+    @include tablet {
+        margin-top: 0;
+        padding   : 6.8rem 0;
+
+        &__wrapper {
+            display        : flex;
+            justify-content: space-between;
+            gap            : 3rem;
+        }
+
+        &__item {
+            margin-bottom: 0;
+        }
+    }
+}

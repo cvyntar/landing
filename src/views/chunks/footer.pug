@@ -1,0 +1,10 @@
+footer.footer 
+    .container 
+        .footer__wrapper
+            .footer__navigation
+                each link in links
+                    a(href=link.href target=link.target).footer__link= link.title
+            .footer__info 
+                a(href="/").footer__brand
+                    img(loading="lazy" src="img/brand.svg" alt="brand").footer__brand-svg
+                .footer__copy © 2023 Cvyntar.IO LTD Trademarks belong to their respective owners. All rights reserved 

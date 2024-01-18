@@ -1,0 +1,17 @@
+-
+    var links = [
+        {title: "Contact us", href: "https://share.hsforms.com/1IgR6f7mwQqS14B6JNWfU4g3d8zs", target: "_blank"},
+    ]
+
+header.hero
+    .container
+        .hero__wrapper
+            a(href="/").hero__brand
+                img(loading="lazy" src="img/brand.svg" alt="brand").hero__brand-svg
+            nav.hero__nav
+                img(loading="lazy" src="img/close.svg" alt="close-icon").hero__close
+                .hero__title Menu
+                each link in links
+                    a(href=link.href target=link.target).hero__link= link.title
+            .hero__mobile
+                img(loading="lazy" src="img/burger.svg" alt="burger").hero__mobile-svg

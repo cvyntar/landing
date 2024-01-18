@@ -1,0 +1,17 @@
+- var listItems = ["Hands-off approach — Accept crypto without touching it", "1% fee — No hidden fees and clear payment settlement", "Multiple ways — Reach millions of customers using several options", "Any Wallet — Receive crypto in  any suitable wallet", "Worldwide— Get access to customers in 99% of countries and territories instantly"]
+
+section.cta
+    .container 
+        .cta__wrapper 
+            .cta__row
+                h1.headline.cta__headline Bitcoin & Crypto Payment Gateway
+                picture.cta__image
+                    img(loading="lazy" src="img/cta-image.svg" alt="cta-image").cta__image-img
+                .cta__list
+                    each val in listItems
+                        .cta__list-item
+                            img(loading="lazy" src="img/checkmark.svg" alt="checkmark").cta__list-checkmark 
+                            p.cta__list-item-text= val
+                .cta__buttons
+                    a(href="https://docs.google.com/forms/d/e/1FAIpQLSf5pXWa1nIo3EoYSomSc4dPkn4a2OiTh6VynvZr0gwfSVoBXQ/viewform" target="_blank").btn.btn-primary.cta__button Submit a request
+                    a(href="https://share.hsforms.com/1IgR6f7mwQqS14B6JNWfU4g3d8zs" target="_blank").btn.btn-secondary.cta__button-alt Contact sales

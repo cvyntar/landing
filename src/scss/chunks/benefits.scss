@@ -1,0 +1,80 @@
+.benefits {
+    margin-top: 4rem;
+
+    &__top {
+        margin-bottom: 4rem;
+        text-align   : center;
+    }
+
+    &__title {
+        margin-bottom: 1rem;
+    }
+
+    &__item {
+        min-height    : 28.8rem;
+        border        : 0.1rem solid $lineColor2;
+        border-radius : 0.5rem;
+        padding       : 4.9rem 2.8rem 4.8rem 2.8rem;
+        display       : flex;
+        flex-direction: column;
+        align-items   : center;
+        text-align    : center;
+        margin-bottom : 1.6rem;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__item-image {
+        display      : block;
+        width        : 6.8rem;
+        height       : 6.8rem;
+        margin-bottom: 3.2rem;
+    }
+
+    &__item-title {
+        font-size  : 1.8rem;
+        font-weight: 700;
+        margin: 0;
+    }
+
+    &__item-description {
+        margin: 0.8rem 0 0 0;
+    }
+
+    @include tablet {
+        margin-top: 0;
+        padding   : 9.6rem 0;
+
+        &__top {
+            display        : flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 9.6rem;
+        }
+
+        &__title {
+            margin-bottom: 2.4rem;
+            width        : 54rem;
+        }
+
+        &__description {
+            margin: 0;
+            line-height: 150%;
+            width        : 54rem;
+        }
+
+        &__wrapper {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        &__item {
+            margin-bottom: 0;
+            width: calc(100% / 3 - 1.5rem);
+            padding: 5.9rem 6.9rem 5rem 6.9rem;
+            min-height: 30rem;
+        }
+    }
+}

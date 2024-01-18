@@ -1,0 +1,156 @@
+@import "libs/normalize";
+@import "libs/swiper";
+@import "vars";
+@import "fonts";
+@import "mixins";
+
+@import "chunks/hero.scss";
+@import "chunks/cta.scss";
+@import "chunks/benefits.scss";
+@import "chunks/plans.scss";
+@import "chunks/features.scss";
+@import "chunks/information.scss";
+@import "chunks/faq.scss";
+@import "chunks/get-started.scss";
+@import "chunks/footer.scss";
+@import "chunks/demo.scss";
+@import "chunks/not-found.scss";
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+html {
+    font-size      : 10px;
+    scroll-behavior: smooth;
+
+    @include tablet {
+        font-size: 6px;
+    }
+
+
+    @include laptop {
+        font-size: 10px;
+    }
+}
+
+body {
+    font-family   : "Open Sans", sans-serif;
+    font-weight   : 400;
+    line-height   : 130%;
+    font-size     : 1.5rem;
+    letter-spacing: -0.05rem;
+    color         : $mainColor;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    padding: 0 1.6rem;
+
+    @include tablet {
+        max-width: 117rem;
+        margin   : 0 auto;
+    }
+    @include pc {
+        padding: 0;
+    }
+}
+
+
+.headline {
+    font-weight   : 700;
+    font-size     : 3rem;
+    line-height   : 120%;
+    letter-spacing: -0.1rem;
+
+    @include tablet {
+        font-size: 5.2rem;
+    }
+}
+
+.title {
+    font-weight: 700;
+    font-size  : 2.4rem;
+    line-height: 130%;
+
+    @include tablet {
+        font-size: 3rem;
+    }
+}
+
+.btn {
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+    padding        : 1.3rem 0 1.5rem 0;
+    border-radius  : 0.5rem;
+    font-weight    : 700;
+}
+
+.btn-primary {
+    color     : $whiteColor;
+    background: $ctaColor;
+    border    : none;
+}
+
+.btn-secondary {
+    color     : $ctaColor;
+    background: transparent;
+    border    : 0.1rem solid $lineColor1;
+}
+
+.input {
+    background   : $whiteColor;
+    color        : $mainColor;
+    border       : 0.1rem solid #D1DBE3;
+    box-sizing   : border-box;
+    border-radius: 0.5rem;
+    padding      : 1rem 0.7rem;
+    width        : 100%;
+    font-size    : 1.4rem;
+    font-weight  : 400;
+}
+
+.label {
+    font-weight: 600;
+    font-size  : 1.2rem;
+    line-height: 1.6rem;
+}
+
+.select {
+    background         : $whiteColor;
+    background-image   : url("data:image/svg+xml,%3Csvg width='10' height='7' viewBox='0 0 10 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23344563' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E%0A");
+    background-position: calc(100% - 1.6rem) 50%;
+    background-repeat  : no-repeat;
+    color              : $mainColor;
+    appearance         : none;
+    border             : 0.1rem solid #D1DBE3;
+    box-sizing         : border-box;
+    border-radius      : 0.5rem;
+    padding            : 1rem 0.7rem;
+    width              : 100%;
+    font-weight        : 400;
+    font-size          : 1.4rem;
+}
