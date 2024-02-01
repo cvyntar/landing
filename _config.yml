@@ -30,17 +30,74 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  cvyntar
 
 # Build settings
+permalink: none
 
 plugins:
   - jekyll-feed
+  - jekyll-pug
   - jekyll-seo-tag
+
+language_default: uk-UA
+
+collections_dir: content
+collections:
+  en-US:
+    output: true
+    permalink: /:collection/:slug
+  uk-UA:
+    output: true
+    permalink: /:collection/:slug
+  # drafts:
+  #   output: false
+  posts:
+    output: true
+    permalink: /:title
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "404"
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "404"
+  -
+    scope:
+      path: ""
+      type: "uk-UA"
+    values:
+      layout: "page"
+  -
+    scope:
+      path: "_uk-UA/news"
+    values:
+      layout: "post"
+      permalink: /uk-UA/news/:slug/
+  -
+    scope:
+      path: ""
+      type: "en-US"
+    values:
+      layout: "page"
+  -
+    scope:
+      path: "_en-US/news"
+    values:
+      layout: "post"
+      permalink: /en-US/news/:slug/
+
+
 
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
 # the internal "default list".
-#
-# Excluded items can be processed by explicitly listing the directories or
+## Excluded items can be processed by explicitly listing the directories or
 # their entries' file path in the `include:` list.
 #
 # exclude:
