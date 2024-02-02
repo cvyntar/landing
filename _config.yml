@@ -47,51 +47,36 @@ collections:
   uk-UA:
     output: true
     permalink: /:collection/:slug
-  # drafts:
-  #   output: false
+  drafts:
+    output: false
   posts:
-    output: true
-    permalink: /:title
+    output: false
 
 defaults:
-  -
-    scope:
-      path: ""
-      type: "pages"
-    values:
-      layout: "404"
-  -
-    scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: "404"
-  -
-    scope:
-      path: ""
-      type: "uk-UA"
-    values:
-      layout: "page"
+  # -
+  #   scope:
+  #     path: ""
+  #     type: "uk-UA"
+  #   values:
+  #     layout: "page"
   -
     scope:
       path: "_uk-UA/news"
     values:
       layout: "post"
       permalink: /uk-UA/news/:slug/
-  -
-    scope:
-      path: ""
-      type: "en-US"
-    values:
-      layout: "page"
+  # -
+  #   scope:
+  #     path: ""
+  #     type: "en-US"
+  #   values:
+  #     layout: "page"
   -
     scope:
       path: "_en-US/news"
     values:
       layout: "post"
       permalink: /en-US/news/:slug/
-
-
 
 # Exclude from processing.
 # The following items will not be processed, by default.

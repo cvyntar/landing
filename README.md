@@ -19,7 +19,6 @@
 1. Install Jekyll. See https://jekyllrb.com/docs/
 1. Build the site and make it available on a local server
   ```shell
-  cd docs
   bundle update
   jekyll serve --host 127.0.0.1 --port 4000
   ```
