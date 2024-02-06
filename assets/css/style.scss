@@ -5,3 +5,70 @@
 @import
   "minima/skins/{{ site.minima.skin | default: 'classic' }}",
   "minima/initialize";
+
+.background-header, .background-footer {
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  width: 100%;
+  background-repeat: repeat-x;
+  z-index: -1;
+}
+
+.background-header {
+  top: 0;
+  height: 256px;
+  background-image: url('/assets/image/bg-header.png');
+}
+
+.background-footer {
+  bottom: 0;
+  height: 192px;
+  background-image: url('/assets/image/bg-footer.png');
+}
+
+.body-outer {
+  display: table;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.body-middle {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.body-content {
+  justify-content: center;
+  margin-top: 128px;
+  margin-bottom: 32px;
+  // margin-bottom: 64px;
+  background: white;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: calc(#{$content-width} - (#{$spacing-unit}));
+  padding-right: $spacing-unit * .5;
+  padding-left: $spacing-unit * .5;
+
+  @media screen and (min-width: $on-large) {
+    max-width: calc(#{$content-width} - (#{$spacing-unit} * 2));
+    padding-right: $spacing-unit;
+    padding-left: $spacing-unit;
+  }
+}
+
+.site-header {
+  background-color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: top 0.6s ease-in-out; 
+}
+
+.site-header.hidden {
+  top: -($spacing-unit * 1.865);
+}
