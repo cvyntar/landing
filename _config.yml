@@ -23,10 +23,10 @@ collections:
     lang_sort_order: 3
     output: true
   en-US:
-    lang_sort_order: 2
+    lang_sort_order: 1
     output: true
   uk-UA:
-    lang_sort_order: 1
+    lang_sort_order: 2
     output: true
   drafts:
     output: false

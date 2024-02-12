@@ -1,24 +1,35 @@
 ---
 layout: base
 ---
-
+{%- assign page_language = page.collection | default: site.language_default -%}
+{%- assign languages = site.collections | where_exp: "item", "item.label != 'posts' and item.label != 'drafts'" | sort: "lang_sort_order" -%}
+{%- assign unique_post_names = site.documents | where_exp: "item", "item.layout == 'post'" | map: "name" | uniq -%}
 <div class="home">
   {{ content }}
 
+  {%- comment -%}Render list of posts{%- endcomment -%}
   {% if site.paginate %}
-    {% assign posts = paginator.posts | where_exp: "item", "item.layout == 'post' " %}
-  {% else %}
-    {% assign posts = site[page.collection] | where_exp: "item", "item.layout == 'post' " %}
+    {% assign posts_not_implemented = paginator.posts | where_exp: "item", "item.layout == 'post' " %}
   {% endif %}
-
-  {%- if posts.size > 0 -%}
-    {% assign posts = posts | sort: "date" | reverse %}
-    {%- for post in posts -%}
-    <li>{{ post.date }} {{ post.id }}</li>
+  {%- if unique_post_names.size > 0 -%}
+    {%- assign posts = "" | split: ',' -%}
+    {%- for unique_post_name in unique_post_names -%}
+      {%- assign post = site[page_language] | where_exp: "item", "item.layout == 'post' and item.name == unique_post_name" | first -%}
+      {%- if post -%}
+        {%- assign posts = posts | push: post -%}
+      {%- else -%}
+        {%- assign lang_posts = "" | split: ',' -%}
+        {%- for language in languages -%}
+          {%- assign translated_page = site.documents | where_exp: "item", "item.layout == 'post' and item.name == unique_post_name" | where: "collection", language.label | first -%}
+          {%- if translated_page %}
+            {% assign lang_posts = lang_posts | push: translated_page %}
+          {%- endif -%}
+        {%- endfor -%}
+        {%- assign post = lang_posts | first -%}
+        {%- assign posts = posts | push: post -%}
+      {%- endif -%}
     {%- endfor -%}
-    {%- if page.list_title -%}
-      <h2 class="post-list-heading">{{ page.list_title }}</h2>
-    {%- endif -%}
+    {% assign posts = posts | sort: "date" | reverse %}
     <ul class="post-list">
       {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
       {%- for post in posts -%}
@@ -35,7 +46,6 @@ layout: base
       </li>
       {%- endfor -%}
     </ul>
-
     {% if site.paginate %}
       <div class="pager">
         <ul class="pagination">
@@ -53,9 +63,7 @@ layout: base
         </ul>
       </div>
     {%- endif %}
-
   {%- else -%}
   <p>No any posts yet</p>
   {%- endif -%}
-
 </div>
