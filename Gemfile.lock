@@ -82,6 +82,8 @@ GEM
       google-protobuf (~> 3.25)
     sass-embedded (1.70.0-x86_64-linux-android)
       google-protobuf (~> 3.25)
+    sass-embedded (1.70.0-x86_64-linux-gnu)
+      google-protobuf (~> 3.25)
     sass-embedded (1.70.0-x86_64-linux-musl)
       google-protobuf (~> 3.25)
     terminal-table (3.0.2)
@@ -95,6 +97,7 @@ PLATFORMS
   arm-linux-gnueabihf
   arm-linux-musleabihf
   x86-linux-android
+  x86_64-linux
   x86_64-linux-android
   x86_64-linux-musl
 
