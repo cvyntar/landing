@@ -23,12 +23,12 @@
 {%- if total_flag_pages > 1 -%}
   {%- for flag_page in flag_pages -%}
     {%- assign flag_page_language = flag_page.collection -%}
-    {%- if translated_page.name == 'index.pug' -%}
+    {%- if translated_page.name == 'index.pug' or translated_page.name == 'index.markdown' or translated_page.name == 'index.md' -%}
         {%- assign flag_page_url = flag_page.url | replace: '/index', '/' -%}
     {%- else -%}
         {%- assign flag_page_url = flag_page.url -%}
     {%- endif -%}
-    <a lang="{{ flag_page_language }}" href="{{ flag_page_url }}">
+    <a lang="{{ flag_page_language }}" href="{{ flag_page_url | relative_url }}">
       <img src="{{ '/assets/flags/' | append: flag_page_language | append: '.svg' | relative_url }}" alt="{{ flag_page_language }} flag" style="width:36px;">
     </a>
   {%- endfor -%}

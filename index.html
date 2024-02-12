@@ -1,20 +1,21 @@
 ---
 ---
 {%- assign documents = site[site.language_default] -%}
-{%- assign default_index_page = documents | where_exp: "item", "item.collection == site.language_default and item.url == site.language_default" | first -%}
-{%- assign redirect_url = default_index_page.url | replace: '/index', '/' -%}
+{%- assign index_page_url = '/' | append: site.language_default | append: '/index' -%}
+{%- assign index_page = documents | where_exp: "item", "item.collection == site.language_default and item.url == index_page_url" | first -%}
+{%- assign redirect_url = index_page.url | replace: '/index', '/' -%}
 <!DOCTYPE html>
 <html lang="{{ site.language_default }}">
     <head>
         <meta charset="UTF-8">
-        <meta http-equiv="refresh" content="0; url={{ redirect_url }}">
+        <meta http-equiv="refresh" content="0; url={{ redirect_url | relative_url }}">
         <script type="text/javascript">
-            window.location.href = "{{ redirect_url }}"
+            window.location.href = "{{ redirect_url | relative_url }}"
         </script>
         <title>Index Page Redirection</title>
     </head>
     <body>
         <!-- Note: don't tell people to `click` the link, just tell them that it is a link. -->
-        If you are not redirected automatically, follow this <a href='{{ redirect_url }}'>link</a> to see index page.
+        If you are not redirected automatically, follow this <a href='{{ redirect_url | relative_url }}'>link</a> to see index page.
     </body>
 </html>
