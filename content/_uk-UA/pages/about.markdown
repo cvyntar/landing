@@ -1,19 +1,10 @@
 ---
 layout: page
-title: About
+title: Про нас
 ---
 
 ua-UA
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+Хочемо вражати киян комфортом безпрограшних домовленостей і прагнемо розвивати послуги доставки кореспонденції, ремонт ювелірних виробів і годинників і пасажирські перевезення разом із іноземними компаніями.
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
-
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
-
-
-[jekyll-organization]: https://github.com/jekyll
+У своїй діяльності організація використовує комп'ютерні фінансово відповідальні засоби накопичення, новаторства та інновацій. Наша мета проста: це забезпечення вам продуктів харчування, бізнесу та глобального громадянства. Ми впевнені, що впровадження неперервної інтеграції (підтримка сервісу) критично важливе для розвитку, тому ми постійно працюємо над поліпшенням та разом з тим, відкриті до зберігання даних. Незмінно зміцнює позиції широкий вибір відкриттів: кредити для малого та середнього бізнесу, свіжі овочі та фрукти і кімнатні й садові рослини для домашніх улюбленців і стильних особистостей.

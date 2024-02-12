@@ -3,21 +3,19 @@ layout: base
 ---
 
 <div class="home">
-  {%- if page.title -%}
-    <h1 class="page-heading">{{ page.title }}</h1>
-  {%- endif -%}
-
   {{ content }}
 
-
   {% if site.paginate %}
-    {% assign posts = paginator.posts %}
+    {% assign posts = paginator.posts | where_exp: "item", "item.layout == 'post' " %}
   {% else %}
-    {% assign posts = site.posts %}
+    {% assign posts = site[page.collection] | where_exp: "item", "item.layout == 'post' " %}
   {% endif %}
 
-
   {%- if posts.size > 0 -%}
+    {% assign posts = posts | sort: "date" | reverse %}
+    {%- for post in posts -%}
+    <li>{{ post.date }} {{ post.id }}</li>
+    {%- endfor -%}
     {%- if page.list_title -%}
       <h2 class="post-list-heading">{{ page.list_title }}</h2>
     {%- endif -%}
@@ -56,6 +54,8 @@ layout: base
       </div>
     {%- endif %}
 
+  {%- else -%}
+  <p>No any posts yet</p>
   {%- endif -%}
 
 </div>

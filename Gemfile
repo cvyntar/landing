@@ -4,17 +4,18 @@ gem "jekyll", "~> 4.3.3"
 
 # This is the default theme for new Jekyll sites. You may change this to anything you like.
 #gem "minima", "~> 2.5.1"
+#gem 'minima', '~> 0.0.0', :path => 'vendor/gems/theanurin-jekyll-theme'
 
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.17"
   gem "jekyll-pug", "~> 1.6.1"
-  gem "jekyll-seo-tag", "~> 2.1"
+  gem "jekyll-seo-tag", "~> 2.8.0"
 end
 
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
 # and associated library.
 platforms :mingw, :x64_mingw, :mswin, :jruby do
-  gem "tzinfo", ">= 1", "< 3"
+  gem "tzinfo", ">= 2", "< 3"
   gem "tzinfo-data"
 end
 

@@ -1,0 +1,35 @@
+{%- assign page_language = page.collection | default: site.language_default -%}
+{%- assign languages = site.collections | where_exp: "item", "item.label != 'posts' and item.label != 'drafts'" | sort: "lang_sort_order" -%}
+{%- assign page_id = page.id | replace: page_language, "" -%}
+{%- assign translated_pages = site.documents | where: "id", page.id -%}
+{%- for document in site.documents -%}
+  {%- if document.id != page.id -%}
+    {%- assign document_language = document.collection -%}
+    {%- assign document_id = document.id | replace: document_language, ""  -%}
+    {%- if page_id == document_id -%}
+      {%- assign translated_pages = translated_pages | push: document -%}
+    {%- endif -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- assign translated_pages = translated_pages | sort: "collection" -%}
+{%- assign flag_pages = "" | split: ',' -%}
+{%- for language in languages -%}
+  {%- assign translated_page = translated_pages | where: "collection", language.label | first -%}
+  {%- if translated_page %}
+    {% assign flag_pages = flag_pages | push: translated_page %}
+  {%- endif -%}
+{%- endfor -%}
+{%- assign total_flag_pages = flag_pages | size -%}
+{%- if total_flag_pages > 1 -%}
+  {%- for flag_page in flag_pages -%}
+    {%- assign flag_page_language = flag_page.collection -%}
+    {%- if translated_page.name == 'index.pug' -%}
+        {%- assign flag_page_url = flag_page.url | replace: '/index', '/' -%}
+    {%- else -%}
+        {%- assign flag_page_url = flag_page.url -%}
+    {%- endif -%}
+    <a lang="{{ flag_page_language }}" href="{{ flag_page_url }}">
+      <img src="{{ '/assets/flags/' | append: flag_page_language | append: '.svg' | relative_url }}" alt="{{ flag_page_language }} flag" style="width:36px;">
+    </a>
+  {%- endfor -%}
+{%- endif -%}

@@ -2,7 +2,7 @@
 layout: post
 title:  "Welcome to Jekyll!"
 date:   2023-10-03 10:58:52 +0000
-categories: jekyll update1
+categories: jekyll update
 ---
 
 en-US
