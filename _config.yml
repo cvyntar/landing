@@ -96,6 +96,7 @@ defaults:
 # their entries' file path in the `include:` list.
 #
 exclude:
+  - _plugins/
   - .jekyll-cache/
   - .pug-cache/
   - .sass-cache/
@@ -106,6 +107,10 @@ exclude:
   - Gemfile.lock
   - LICENSE
   - README.md
+
+anurina:
+  debug: true
+  youtube_channel_id: "@STERNENKO"
 
 # Minima specific settings, which are only available from Minima 3.0 onward.
 minima:

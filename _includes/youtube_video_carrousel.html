@@ -1,0 +1,13 @@
+{%- assign youtube_video_urls = page.youtube_video_urls -%}
+{%- if youtube_video_urls -%}
+<p>
+    <h2>Videos</h2>
+    <ul>
+    {% for youtube_video_url in page.youtube_video_urls %}
+        <li>
+            <a href="{{ youtube_video_url }}">{{ youtube_video_url }}</a>
+        </li>
+    {% endfor %}
+    </ul>
+</p>
+{%- endif -%}
