@@ -18,13 +18,13 @@
 .background-header {
   top: 0;
   height: 256px;
-  background-image: url('/assets/image/bg-header.png');
+  background-image: url('{{ "/assets/image/bg-header.png" | relative_url }}');
 }
 
 .background-footer {
   bottom: 0;
   height: 192px;
-  background-image: url('/assets/image/bg-footer.png');
+  background-image: url('{{ "/assets/image/bg-footer.png" | relative_url }}');
 }
 
 .body-outer {

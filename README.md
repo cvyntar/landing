@@ -13,7 +13,7 @@
     theanurin/jekyll:20240212
   ```
   Optionally your may add `--env BUNDLE_PATH=/data/vendor/bundle` to reduce delay between stop/start.
-1. Browse to http://127.0.0.1:4000
+1. Browse to http://127.0.0.1:4000/devel/
 
 ### Jekyll local
 
@@ -23,7 +23,7 @@
   bundle install
   jekyll serve --host 0.0.0.0 --port 4000 --trace
   ```
-1. Browse to http://127.0.0.1:4000
+1. Browse to http://127.0.0.1:4000/devel/
 
 ## Site Content
 
