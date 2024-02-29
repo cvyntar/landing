@@ -67,9 +67,13 @@ module Jekyll
         end
 
         def _load_video_urls_cache()
-            # TODO
-
-            return nil
+            if File.file?(".anurina-cache/cache_links.txt")
+                File.open(".anurina-cache/cache_links.txt", "r") do |file|
+                    return file.readlines.map(&:chomp)
+                end
+            else
+                return nil
+            end
         end
 
         def _load_video_urls_remote()
@@ -87,7 +91,7 @@ module Jekyll
             self._log_debug("Parsing HTML content for videoIds")
             video_urls = html_content.scan(/"videoId":"([\w-]+)"/).map do |match|
               video_id = match[0]
-              "https://www.youtube.com/watch?v=#{video_id}"
+              "https://www.youtube.com/embed/#{video_id}"
             end
 
             unique_video_urls = Set.new(video_urls)
@@ -102,9 +106,26 @@ module Jekyll
         end
 
         def _save_video_urls_cache(video_urls)
-            # TODO
-
-            return nil
+            cache_folder = ".anurina-cache"
+            cache_file = "cache_links.txt"
+        
+            self._log_debug "Cheak if folder exist"
+            if Dir.exist?(cache_folder)
+                self._log_debug "Create folder and cache"
+                File.open(File.join(cache_folder, cache_file), "w") do |file|
+                    video_urls.each do |url|
+                        file.puts(url)
+                    end
+                end
+            else
+                Dir.mkdir(cache_folder)
+                self._log_debug "Create cache"
+                File.open(File.join(cache_folder, cache_file), "w") do |file|
+                    video_urls.each do |url|
+                        file.puts(url)
+                    end
+                end
+            end
         end
     end
-end
+end        

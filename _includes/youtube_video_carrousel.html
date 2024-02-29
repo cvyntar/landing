@@ -1,8 +1,21 @@
 {%- assign youtube_video_urls = page.youtube_video_urls -%}
 {%- if youtube_video_urls -%}
+<script src="{{ '/assets/js/slider.js' | relative_url }}"></script>
 <p>
     <h2>Videos</h2>
     <ul>
+        <div class="slider">
+            <div class="image-container">
+                {% for youtube_video_url in page.youtube_video_urls %}
+                <iframe src="{{ youtube_video_url }}" class="slide" width="500" height="300" frameborder="0" allowfullscreen></iframe>
+                {% endfor %}
+            </div>
+            <div class="buttons">
+                <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+                <a class="next" onclick="changeSlide(1)">&#10095;</a>
+            </div>
+        </div>
+        
     {% for youtube_video_url in page.youtube_video_urls %}
         <li>
             <a href="{{ youtube_video_url }}">{{ youtube_video_url }}</a>
