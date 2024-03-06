@@ -30,6 +30,17 @@ module Jekyll
                 @youtube_channel_id = nil
                 self._log_debug("Warning! Configuration does not provide 'anurina.youtube_channel_id'. A variable 'youtube_video_urls' will not generated.")
             end
+            
+            if (theme_config != nil && theme_config.key?('cache_ttl_minutes'))
+                cache_ttl_minutes = theme_config['cache_ttl_minutes']
+                if cache_ttl_minutes != nil
+                    @cache_ttl_minutes = cache_ttl_minutes
+                    self._log_debug("Cache TTL: #{cache_ttl_minutes}")
+                else
+                    @cache_ttl_minutes = nil
+                    self._log_debug("Warning! Configuration does not provide 'anurina.cache_ttl_minutes. A variable 'cache_ttl_minutes' will not generated.")
+                end
+            end
         end
 
         def generate(site)
@@ -53,15 +64,25 @@ module Jekyll
         end
 
         def _load_video_urls()
+            time_now = Time.now
+            file_modification_time =  File.mtime(".anurina-cache/cache_links.txt")
+            difference = time_now - file_modification_time
+
             self._log_debug "Trying to load video URLs from cache..."
             urls = self._load_video_urls_cache()
-            if urls != nil
+            if urls != nil && (difference < @cache_ttl_minutes)
                 self._log_debug "Video URLs were loaded from cache."
             else
-                urls = self._load_video_urls_remote()
-
-                self._log_debug "Saving video URLs to cache..."
-                self._save_video_urls_cache(urls)
+                begin
+                    urls = self._load_video_urls_remote()
+                rescue Exception => e
+                    puts "Error: Connection break, load video URLs from old cache..."
+                    self._load_video_urls_cache()
+                else
+                    self._check_cache_time_to_live()
+                    self._log_debug "Saving video URLs to cache..."
+                    self._save_video_urls_cache(urls)
+                end
             end
             return urls
         end
@@ -70,6 +91,22 @@ module Jekyll
             if File.file?(".anurina-cache/cache_links.txt")
                 File.open(".anurina-cache/cache_links.txt", "r") do |file|
                     return file.readlines.map(&:chomp)
+                end
+            else
+                return nil
+            end
+        end
+
+        def _check_cache_time_to_live()
+            if File.exist?(".anurina-cache/cache_links.txt") 
+                time_now = Time.now
+                file_modification_time =  File.mtime(".anurina-cache/cache_links.txt")
+                difference = time_now - file_modification_time
+                if (difference > @cache_ttl_minutes)
+                    self._log_debug "Check how long cache exists"
+                    FileUtils.rm_rf(".anurina-cache/cache_links.txt")
+                    self._log_debug "Cache delete"
+                    return nil
                 end
             else
                 return nil
@@ -111,7 +148,6 @@ module Jekyll
         
             self._log_debug "Cheak if folder exist"
             if Dir.exist?(cache_folder)
-                self._log_debug "Create folder and cache"
                 File.open(File.join(cache_folder, cache_file), "w") do |file|
                     video_urls.each do |url|
                         file.puts(url)
@@ -119,7 +155,7 @@ module Jekyll
                 end
             else
                 Dir.mkdir(cache_folder)
-                self._log_debug "Create cache"
+                self._log_debug "Create folder"
                 File.open(File.join(cache_folder, cache_file), "w") do |file|
                     video_urls.each do |url|
                         file.puts(url)

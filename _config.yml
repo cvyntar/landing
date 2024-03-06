@@ -112,6 +112,7 @@ exclude:
 anurina:
   debug: true
   youtube_channel_id: "@STERNENKO"
+  cache_ttl_minutes: 20
 
 # Minima specific settings, which are only available from Minima 3.0 onward.
 minima:
