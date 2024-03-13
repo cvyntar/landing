@@ -1,5 +1,8 @@
 ---
 layout: home
+title: Головна сторінка
+menu_title: Головна
+menu_order: 1
 ---
 # Це працює!!!
 

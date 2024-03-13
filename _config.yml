@@ -7,6 +7,7 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 #   name: CVYNTAR
 #   email: your-email@cvyntar.in.ua
 
+
 # Build settings
 permalink: none
 
@@ -20,13 +21,13 @@ language_default: uk-UA
 collections_dir: content
 collections:
   de-DE:
-    lang_sort_order: 3
+    lang_sort_order: 2
     output: true
   en-US:
-    lang_sort_order: 1
+    lang_sort_order: 3
     output: true
   uk-UA:
-    lang_sort_order: 2
+    lang_sort_order: 1
     output: true
   drafts:
     output: false
@@ -123,6 +124,11 @@ minima:
   # The default value is "%b %d, %Y" (e.g. Nov 14, 2023) 
   # Refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this.
   #date_format: "%b-%d-%Y"
+
+anurina:
+  menu_pages:
+    - index.markdown
+    - about.markdown
 
   # Generate social links in footer.
   social_links:

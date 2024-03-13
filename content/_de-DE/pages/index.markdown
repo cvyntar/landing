@@ -1,5 +1,8 @@
 ---
 layout: home
+title: Hauptseite
+menu_title: Hauptseite
+menu_order: 1
 ---
 # Es klappt!!!
 

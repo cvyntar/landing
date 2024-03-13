@@ -1,6 +1,8 @@
 ---
 layout: page
 title: Über uns
+menu_title: Über uns
+menu_order: 99
 ---
 
 de-DE

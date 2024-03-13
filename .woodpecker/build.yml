@@ -1,0 +1,23 @@
+steps:
+  configure:
+    image: theanurin/configuration-templates:20231204
+    commands:
+      - echo "LOG_LEVEL=info" >> .envvars
+
+  compile:
+    image: theanurin/jekyll:20240212
+    commands:
+      - bundle install
+      - jekyll build
+
+  # slack:
+  #   image: plugins/slack@sha256:12cc8bc7efdb944051632d578a8095fd37b70555538c27c756602bd0d185899a
+  #   settings:
+  #     channel: w-cvyntar
+  #     webhook: 
+  #       from_secret: slack_webhook
+  #     username: Woodpecker
+  #     icon_url: https://unsplash.it/256/256/?random
+  #   when:
+  #     - status:
+  #       - failure

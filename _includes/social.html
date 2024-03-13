@@ -1,5 +1,15 @@
 <ul class="social-media-list">
-{%- for entry in site.minima.social_links -%}
-  {%- include social-item.html item = entry -%}
+{%- assign social_links = site.anurina.social_links -%}
+{%- for social_link in social_links -%}
+  {% case social_link.platform %}
+  {% when "youtube" %}
+    {%- include social-item.html item = social_link color = '#FF0000' -%}
+  {% when "github" %}
+    {%- include social-item.html item = social_link color = '#000000' -%}
+  {% when "telegram" %}
+    {%- include social-item.html item = social_link color = '#2AABEE' -%}
+  {% else %}
+    {%- include social-item.html item = social_link -%}
+  {% endcase %}
 {%- endfor -%}
 </ul>

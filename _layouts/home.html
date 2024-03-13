@@ -2,7 +2,7 @@
 layout: base
 ---
 {%- assign page_language = page.collection | default: site.language_default -%}
-{%- assign languages = site.collections | where_exp: "item", "item.label != 'posts' and item.label != 'drafts'" | sort: "lang_sort_order" -%}
+{%- assign languages = site.collections | where_exp: "item", "item.label != 'posts' and item.label != 'drafts'" | sort: "lang_sort_order" | reverse -%}
 {%- assign unique_post_names = site.documents | where_exp: "item", "item.layout == 'post'" | map: "name" | uniq -%}
 <div class="home">
   {{ content }}

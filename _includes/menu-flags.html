@@ -21,7 +21,9 @@
 {%- endfor -%}
 {%- assign total_flag_pages = flag_pages | size -%}
 {%- if total_flag_pages > 1 -%}
+<ul class="social-media-list">
   {%- for flag_page in flag_pages -%}
+  <li>
     {%- assign flag_page_language = flag_page.collection -%}
     {%- if translated_page.name == 'index.pug' or translated_page.name == 'index.markdown' or translated_page.name == 'index.md' -%}
         {%- assign flag_page_url = flag_page.url | replace: '/index', '/' -%}
@@ -31,5 +33,7 @@
     <a lang="{{ flag_page_language }}" href="{{ flag_page_url | relative_url }}">
       <img src="{{ '/assets/flags/' | append: flag_page_language | append: '.svg' | relative_url }}" alt="{{ flag_page_language }} flag" style="width:36px;">
     </a>
+  </li>
   {%- endfor -%}
+</ul>
 {%- endif -%}

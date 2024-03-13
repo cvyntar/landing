@@ -1,6 +1,8 @@
 ---
 layout: page
-title: About
+title: About Us
+menu_title: About
+menu_order: 99
 ---
 
 en-US

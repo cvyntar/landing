@@ -1,14 +1,14 @@
 ---
-permalink: /assets/minima-social-icons.svg
+permalink: /assets/anurina-social-icons.svg
 ---
 
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 {% comment %}
-  Iterate through {{ site.minima.social_links }} and render platform related SVG-symbol
+  Iterate through {{ site.anurina.social_links }} and render platform related SVG-symbol
   unless the platform is "rss" because we need the "rss" symbol for the `Subscribe` link
   in the footer and therefore inject the "rss" icon outside the iteration loop.
 {% endcomment %}
-{% for entry in site.minima.social_links %}
+{% for entry in site.anurina.social_links %}
   {%- assign symbol_id = entry.platform -%}
   {%- unless symbol_id == "rss" -%}
     {%- include social_icon.html key = symbol_id -%}
